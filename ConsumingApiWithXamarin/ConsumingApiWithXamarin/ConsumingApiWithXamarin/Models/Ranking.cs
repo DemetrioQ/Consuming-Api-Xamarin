@@ -20,8 +20,8 @@ namespace ConsumingApiWithXamarin.Models
         //[JsonPropertyName("rank")]
         //public string Rank { get; set; }
 
-        //[JsonPropertyName("summonerId")]
-        //public string SummonerId { get; set; }
+        [JsonPropertyName("summonerId")]
+        public string SummonerId { get; set; }
 
         [JsonPropertyName("summonerName")]
         public string SummonerName { get; set; }

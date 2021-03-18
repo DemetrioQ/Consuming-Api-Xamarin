@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsumingApiWithXamarin.Services;
+using ConsumingApiWithXamarin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace ConsumingApiWithXamarin.Views
         public RankingPage()
         {
             InitializeComponent();
+            BindingContext = new RankingViewModel(new RankingApiService());
         }
     }
 }
