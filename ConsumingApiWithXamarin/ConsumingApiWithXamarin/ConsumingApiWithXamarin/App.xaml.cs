@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using ConsumingApiWithXamarin.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +11,7 @@ namespace ConsumingApiWithXamarin
         public App()
         {
             InitializeComponent();
-
+            //var secret = Secrets.AiKey;
             MainPage = new MainPage();
         }
 
