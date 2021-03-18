@@ -1,4 +1,5 @@
 ﻿
+using ConsumingApiWithXamarin.Helpers;
 using ConsumingApiWithXamarin.Views;
 using System;
 using Xamarin.Forms;
@@ -11,8 +12,7 @@ namespace ConsumingApiWithXamarin
         public App()
         {
             InitializeComponent();
-            //var secret = Secrets.AiKey;
-            MainPage = new MainPage();
+            MainPage = new RankingPage();
         }
 
         protected override void OnStart()
