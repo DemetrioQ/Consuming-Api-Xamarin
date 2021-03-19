@@ -13,11 +13,21 @@ namespace ConsumingApiWithXamarin.Services
     public class RankingApiService : IRankingApiService
     {
         public const string ApiKey = Secrets.ApiKey;
-        public async Task<ObservableCollection<Ranking>> GetRankingAync()
+        ISerializerService serializerService = new SerializerService();
+
+        public async Task<ObservableCollection<Ranking>> GetRankingAync(string queue, string tier, string division)
         {
             ObservableCollection<Ranking> ranking = null;
             var refitClient = RestService.For<IRankingApi>("https://na1.api.riotgames.com/lol/league-exp/v4/entries");
-            ranking = await refitClient.GetRankingAync(ApiKey);
+
+            var rankingResponse = await refitClient.GetRankingAync(queue, tier, division, ApiKey);
+
+            if(rankingResponse.IsSuccessStatusCode)
+            {
+                var jsonRanking = await rankingResponse.Content.ReadAsStringAsync();
+                ranking = serializerService.Deserialize<ObservableCollection<Ranking>>(jsonRanking);
+            }
+           
 
             return ranking;
         }

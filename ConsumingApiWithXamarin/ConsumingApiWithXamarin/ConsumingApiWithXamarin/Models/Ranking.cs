@@ -11,17 +11,8 @@ namespace ConsumingApiWithXamarin.Models
         //[JsonPropertyName("leagueId")]
         //public string LeagueId { get; set; }
 
-        //[JsonPropertyName("queueType")]
-        //public string QueueType { get; set; }
-
-        //[JsonPropertyName("tier")]
-        //public string Tier { get; set; }
-
-        //[JsonPropertyName("rank")]
-        //public string Rank { get; set; }
-
-        [JsonPropertyName("summonerId")]
-        public string SummonerId { get; set; }
+        //[JsonPropertyName("summonerId")]
+        //public string SummonerId { get; set; }
 
         [JsonPropertyName("summonerName")]
         public string SummonerName { get; set; }

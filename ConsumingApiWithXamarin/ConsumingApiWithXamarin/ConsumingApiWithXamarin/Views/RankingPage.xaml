@@ -5,9 +5,12 @@
 
 
     <StackLayout>
+        <Label Text="Na Ranking" HorizontalOptions="Center" FontSize="40" FontAttributes="Bold" TextColor="Black"></Label>
+        
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
         <ListView
         ItemsSource="{Binding Ranking}"
+         IsVisible="{Binding NotBusy}"
         >
 
             <ListView.ItemTemplate>
