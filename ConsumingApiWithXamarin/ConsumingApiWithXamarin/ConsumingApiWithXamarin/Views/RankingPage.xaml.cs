@@ -15,7 +15,7 @@ namespace ConsumingApiWithXamarin.Views
         public RankingPage()
         {
             InitializeComponent();
-            BindingContext = new RankingViewModel(new RankingApiService());
+            BindingContext = new RankingViewModel(new RankingApiService(), new AlertService());
         }
     }
 }

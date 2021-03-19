@@ -8,12 +8,6 @@ namespace ConsumingApiWithXamarin.Models
     public class Ranking
     {
 
-        //[JsonPropertyName("leagueId")]
-        //public string LeagueId { get; set; }
-
-        //[JsonPropertyName("summonerId")]
-        //public string SummonerId { get; set; }
-
         [JsonPropertyName("summonerName")]
         public string SummonerName { get; set; }
 
@@ -26,17 +20,6 @@ namespace ConsumingApiWithXamarin.Models
         [JsonPropertyName("losses")]
         public int Losses { get; set; }
 
-       // [JsonPropertyName("veteran")]
-       // public bool Veteran { get; set; }
-
-       // [JsonPropertyName("inactive")]
-        //public bool Inactive { get; set; }
-
-        //[JsonPropertyName("freshBlood")]
-       // public bool FreshBlood { get; set; }
-
-        //[JsonPropertyName("hotStreak")]
-        //public bool HotStreak { get; set; }
     }
 
 }

@@ -16,13 +16,15 @@ namespace ConsumingApiWithXamarin.ViewModels
         public ObservableCollection<Ranking> Ranking { get; set; }
         public RankingInfo rankingInfo { get; set; }
         IRankingApiService _rankingApiService { get; }
+        IAlertService _alertService { get; }
         public bool IsBusy { get; set; }
-        ICommand GetCommand { get; }
+        public ICommand GetCommand { get; }
         public bool IsNotBusy => !IsBusy;
 
-        public RankingViewModel(IRankingApiService rankingApiService)
+        public RankingViewModel(IRankingApiService rankingApiService, IAlertService alertService)
         {
             _rankingApiService = rankingApiService;
+            _alertService = alertService;
             rankingInfo = new RankingInfo();
             GetCommand = new Command<RankingInfo>(LoadRanking);
         }
@@ -32,11 +34,15 @@ namespace ConsumingApiWithXamarin.ViewModels
             IsBusy = true;
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                if(info.Tier == "CHALLENGER")
+                {
+                    info.Division = "I";
+                }
                 Ranking = await _rankingApiService.GetRankingAync(info.Queue, info.Tier, info.Division);
             }
             else
             {
-                //Show alert
+                await _alertService.DisplayAlertAsync("No internet connection", "No internet connection detected");
             }
 
             IsBusy = false;
